@@ -7,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:itmaterialspoint/UI_widgets/elevated.dart';
 import 'package:itmaterialspoint/UI_widgets/snack_bar.dart';
-import 'package:itmaterialspoint/UI_widgets/textfield.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 class EditProfile extends StatefulWidget {
