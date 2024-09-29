@@ -203,7 +203,7 @@ class _homeState extends State<Home> {
               ? Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: IconButton(
-                    icon: const Icon(Icons.edit_rounded),
+                    icon:  Icon(Icons.edit_rounded,color: !colorBW ? Colors.white : Colors.black ,),
                     onPressed: () {
                       Navigator.push(
                           context,

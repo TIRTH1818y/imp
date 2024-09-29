@@ -39,6 +39,8 @@ class home_page_state extends State<home_page> {
     });
   }
 
+
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -183,6 +185,7 @@ class home_page_state extends State<home_page> {
                   thickness: 1,
                   color: Colors.black.withOpacity(0.2),
                 ),
+                post(),
               ],
             );
           },
@@ -190,4 +193,57 @@ class home_page_state extends State<home_page> {
       ],
     );
   }
+  int likes= 123;
+  bool liked =true;
+  String posturl = "https://firebasestorage.googleapis.com/v0/b/crud1-5ff73.appspot.com/o/posts%2Fbmw-m3-touring-g81-mpp-03-wallpaper.jpg?alt=media&token=acdf1684-db46-4bf4-b736-eca793d0973d";
+
+  Widget post() {
+    return Card(
+      color: Colors.cyan.shade100,
+      child:  Padding(padding: EdgeInsets.all(10),
+        child:Column(
+          children: [
+            Text("BMW ",style: TextStyle(fontSize: 20),),
+            Image.network( posturl,
+              width: MediaQuery.of(context).size.width/100*80,),
+            Padding(
+              padding: const EdgeInsets.only(top:5,left: 15),
+              child: Row(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: IconButton(
+                      onPressed: (){
+                        setState(() {
+                          liked =! liked;
+                          if (liked){
+                            likes += 1;
+                          }
+                          else{
+                            likes -= 1;
+                          }
+                        });
+                      }, icon:liked == true ?  const Icon(Icons.favorite ,color: Colors.red,size: 30,) : Icon(Icons.favorite_border,color: Colors.black,size: 30,),),
+                  ),
+                  Text(likes.toString() + "Like"),
+
+                  // Padding(
+                  //   padding: const EdgeInsets.only(left: 50),
+                  //   child: IconButton(
+                  //     onPressed: (){
+                  //       setState(() {
+                  //         liked =! liked;
+                  //       });
+                  //     }, icon: Icon(Icons.comment_outlined) ),
+                  // ),
+
+                ],
+              ),
+            ),
+
+          ],
+        ),
+      ),
+    );
+}
 }
